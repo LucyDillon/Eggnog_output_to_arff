@@ -18,6 +18,8 @@ if __name__ == "__main__":
                         help='Catagory 2 e.g. Resistant', required=True) 
     parser.add_argument('-catagory3', action='store', dest='catagory3', 
                         help='Catagory 3 e.g. Intermediate', required=False)
+    
+options = parser.parse_args()    
 #Read in eggnog file:
 eggnog = pd.read_csv(options.file, sep='\\t', comment='#',names=['query', 'seed_ortholog', 'evalue', 'score', 'eggNOG_OGs', 'max_annot_lvl', 'COG_category', 'Description', 'Preferred_name', 'GOs', 'EC', 'KEGG_ko', 'KEGG_Pathway', 'KEGG_Module', 'KEGG_Reaction', 'KEGG_rclass', 'BRITE', 'KEGG_TC', 'CAZy', 'BiGG_Reaction', 'PFAMs'] )
 # Subset table only selecting column 1 and 5
