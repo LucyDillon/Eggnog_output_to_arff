@@ -30,16 +30,16 @@ eggnog_cogs['eggNOG_OGs'] = eggnog_cogs['eggNOG_OGs'].apply(lambda s: s.split('@
 
 eggnog_cogs = eggnog_cogs.rename(columns={'query': 'genome_id', 'eggNOG_OGs': 'cogs'})
 
-grouped = eggnog_cogs.groupby(["query", "eggNOG_OGs"]).size().reset_index(name="cog_freq")
+grouped = eggnog_cogs.groupby(["genome_id", "eggNOG_OGs"]).size().reset_index(name="cog_freq")
 
-table = pd.pivot_table(grouped, values=['cog_freq'], index=['query'],
-                    columns=['eggNOG_OGs'], fill_value=0)
+table = pd.pivot_table(grouped, values=['cog_freq'], index=['genome_id'],
+                    columns=['cogs'], fill_value=0)
 
 #add empty phenotype column: 
 # this is now catagorical vairable:
 table[option.cat_attr_name] = np.nan
 
-Cogs =eggnog_cogs['eggNOG_OGs']
+Cogs =eggnog_cogs['cogs']
 Cogs= Cogs.sort_values(ascending=True)
 Cogs = Cogs.drop_duplicates()
 
