@@ -21,3 +21,6 @@ optional arguments:
   -catagory1 CATAGORY1  Catagory 1 e.g. Susceptible
   -catagory2 CATAGORY2  Catagory 2 e.g. Resistant
   -catagory3 CATAGORY3  Catagory 3 e.g. Intermediate
+
+
+  Note: If you are using the eggnog file on the original model (dot files apply decision tree) it needs to be GeneFamily- not Cog.
