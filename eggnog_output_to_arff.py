@@ -59,4 +59,5 @@ att_out.write('@ATTRIBUTE ' + name + '		{' + option.catagory1 + ', ' + option.ca
 att_out.write('@DATA\n')
 # Write the array data to the bottom of the file and close the file:
 att_out.write(table_array_sep)
+att_out.write('\n')
 att_out.close()
